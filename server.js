@@ -18,6 +18,15 @@ if (app.get('env') === 'development') {
 app.use(express.json());
 app.use(express.static("public"));
 
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.json({
+//     log: err.message,
+//     status: err.status || 500,
+//     error: err ? err.msg : ""
+//   });
+// });
+
 // Handlebars
 app.engine(
   "handlebars",

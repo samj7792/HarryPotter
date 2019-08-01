@@ -23,7 +23,7 @@ module.exports = function(app) {
   // userAnswerArr = []
   app.post("/api/players", function(req, res) {
     
-    console.log(req.body);
+    // console.log(req.body);
 
     db.Story.create({
       playerName: req.body.playerName
@@ -79,5 +79,24 @@ module.exports = function(app) {
     });
     res.status(204).end();
   });
+
+
+  // app.post("/api/players/results", function(req, res) {
+  //   console.log(req.body);
+
+  //   db.Story.findAll({
+  //     where: { playerName: req.body.playerName }
+  //   }).then(function(data) {
+  //     var hbsObject = {
+  //       playerName: data[0].dataValues.playerName,
+  //       house: data[0].dataValues.house,
+  //       characterMatch: data[0].dataValues.characterMatch,
+  //       class: data[0].dataValues.class
+  //     };
+  //     console.log(data);
+  //     console.log(hbsObject);
+  //     res.render("results", hbsObject);
+  //   });
+  // })
 
 };

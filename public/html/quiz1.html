@@ -335,20 +335,18 @@
             </div>
         </div>
         <!-- Match modal -->
-        <div class="modal" tabindex="-1" role="dialog" id="modal-match">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
+        <div class="modal" id="modal-match">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Results</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <p>You've been sorted into: <span id="match-name"></span></p>
                     <img class="responsive-img" id="match-photo" src="" alt="">
                 </div>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="/pause" class="modal-close waves-effect waves-green btn-flat">Continue!</a>
             </div>
         </div>
         
@@ -421,16 +419,6 @@ $("#submit").on("click", function(event) {
         console.log(userAnswers);
 
         // Post user input to /api/players
-        // $.post("/api/players", userAnswers, function(data) {
-        //     console.log(data);
-        //     // Grab match here
-        //     $("#match-name").text(data.houseName);
-        //     $("#match-photo").attr("src", data.houseImage)
-        //     // Show results modal
-        //     $("#modal-match").modal();
-        //     $("#modal-match").modal("open");
-        //     console.log("Front end hello!")
-        // });
         $.ajax({
             method: "PUT",
             url: "/api/players",
@@ -444,7 +432,14 @@ $("#submit").on("click", function(event) {
             $("#modal-match").modal();
             $("#modal-match").modal("open");
             console.log("Front end hello!");
+        }).then(() => {  
+            $.post("/results", playerName, function(data) {
+                console.log(playerName);
+            })
         })
+        // .then(() => {
+        //     window.location.href = "/results"
+        // });
     
     } 
     // If form validation returns as false, tell the user to fill out all of the questions
