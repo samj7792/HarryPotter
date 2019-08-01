@@ -37,7 +37,7 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.playerName)
+        .text(example.text)
         .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")

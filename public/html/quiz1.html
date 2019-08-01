@@ -335,7 +335,7 @@
             </div>
         </div>
         <!-- Match modal -->
-        <!-- <div class="modal" tabindex="-1" role="dialog" id="modal-match">
+        <div class="modal" tabindex="-1" role="dialog" id="modal-match">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -345,12 +345,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Your new best friend is: <span id="match-name"></span></p>
+                    <p>You've been sorted into: <span id="match-name"></span></p>
                     <img class="img-fluid" id="match-photo" src="" alt="">
                 </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         
 
     </div>
@@ -361,12 +361,14 @@
 // Retrieve user input
 $("#submit").on("click", function(event) {
     var answerArr = [];
+    var userAnswers = {};
     event.preventDefault();
     // Form validation
     function validateForm() {
         var isValid = true;
 
-        var userAnswers = {
+        userAnswers = {
+          hello: ["hello"],
           options: [
             $("#q1 input:checked").val(),
             $("#q2 input:checked").val(),
@@ -380,6 +382,7 @@ $("#submit").on("click", function(event) {
             $("#q10 input:checked").val()
           ]
         };
+        console.log("GOODBYE");
         console.log(userAnswers);
         
         userAnswers.options.map(i=>{
@@ -411,22 +414,24 @@ $("#submit").on("click", function(event) {
         //     $("#q10 input:checked").val()
         //   ]
         // };
+        console.log("HELLO");
+        console.log(userAnswers);
 
-        // console.log(userAnswers);
+        // Post user input to /api/players
+        $.post("/api/players", userAnswers, function(data) {
 
-        // // Post user input to /api/friends
-        // $.post("/api/friends", userAnswers, function(data) {
+            // Grab match here
+            $("#match-name").text(data.houseName);
+            $("#match-photo").attr("src", data.houseImage)
+            // Show results modal
+            $("#modal-match").modal();
+            $("#modal-match").modal("open");
+            // Clear out user input fields
+            // $(".form-control").val("");
+            // $(".chosen select").val(""); // This doesn't clear out the fields like I thought it would
+            console.log("Front end hello!")
 
-        //     // Grab match here
-        //     $("#match-name").text(data.friendName);
-        //     $("#match-photo").attr("src", data.friendImage)
-        //     // Show results modal
-        //     $("#modal-match").modal("show");
-        //     // Clear out user input fields
-        //     $(".form-control").val("");
-        //     $(".chosen select").val(""); // This doesn't clear out the fields like I thought it would
-
-        // });
+        });
     
     } 
     // If form validation returns as false, tell the user to fill out all of the questions

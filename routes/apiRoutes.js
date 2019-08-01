@@ -2,17 +2,36 @@ var db = require("../models");
 var houseData = require("../data/houses");
 
 module.exports = function(app) {
-  // Sends user input to API friends list
-  app.get("/api/quiz", function(req, res) {
+  // Displays house data
+  app.get("/api/housequiz", function(req, res) {
     res.json(houseData);
   });
+  
+  userAnswerArr = [];
+  // Displays player data
+  app.get("/api/players", function(req, res) {
+      res.json(userAnswerArr);
+  });
 
-  // Retrieves user input from array and displays on API friends list
-  app.post("/api/friends", function(req, res) {
-    // surveyData.push(req.body);
-    // NOTE: Push houseData to database
+  // app.get("/api/playeranswers", function(req, res) {
+  //   db.Story.findAll({}).then(function(data) {
+  //     res.json(data);
+  //   })
+  // });
+
+  // Retrieves user input from array and posts to players list
+  // userAnswerArr = []
+  app.post("/api/players", function(req, res) {
+    userAnswerArr.push(req.body);
+
 
     var newPerson = req.body.options;
+    console.log("userAnswerArr");
+    console.log(userAnswerArr);
+    console.log("newPerson");
+    console.log(newPerson);
+    console.log("req.body");
+    console.log(req.body);
     var houseMatch;
     var housePhoto;
     
@@ -40,7 +59,19 @@ module.exports = function(app) {
       houseImage: housePhoto
     });
 
+    db.Story.create({
+      house: houseMatch
+    });
+    res.status(204).end();
+
   });
+
+  // app.post("api/players", function(req, res) {
+  //   db.Story.create({
+  //     house: houseMatch
+  //   });
+  //   res.status(204).end();
+  // })
   
   // // Get all examples
   // app.get("/api/examples", function(req, res) {
