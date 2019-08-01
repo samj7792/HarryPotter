@@ -2,6 +2,9 @@ var db = require("../models");
 var houseData = require("../data/houses");
 
 module.exports = function(app) {
+
+  var currentID;
+
   // Displays house data
   app.get("/api/housequiz", function(req, res) {
     res.json(houseData);
@@ -13,25 +16,34 @@ module.exports = function(app) {
       res.json(userAnswerArr);
   });
 
-  // app.get("/api/playeranswers", function(req, res) {
-  //   db.Story.findAll({}).then(function(data) {
-  //     res.json(data);
-  //   })
-  // });
-
   // Retrieves user input from array and posts to players list
-  // userAnswerArr = []
   app.post("/api/players", function(req, res) {
     
     // console.log(req.body);
 
     db.Story.create({
       playerName: req.body.playerName
-    });
+    })
+    .then(function() {
+      db.Story.findAll({
+        limit: 1,
+        where: {
+          playerName: req.body.playerName
+        },
+        order: [ [ 'createdAt', 'DESC' ] ]
+      })
+      .then(function(results) {
+        currentID = results[0].dataValues.id;
+        // console.log(results);
+        console.log(currentID);
+      })
+    })
+
     res.status(204).end();
 
   });
 
+  // Finding the player's house match 
   app.put("/api/players", function(req, res) {
     // userAnswerArr.push(req.body);
     console.log(req.body);
@@ -74,7 +86,8 @@ module.exports = function(app) {
       house: houseMatch
     }, {
       where: {
-        playerName: req.body["playerName[playerName]"]
+        // playerName: req.body["playerName[playerName]"]
+        id: currentID
       }
     });
     res.status(204).end();
@@ -98,5 +111,5 @@ module.exports = function(app) {
   //     res.render("results", hbsObject);
   //   });
   // })
-
 };
+

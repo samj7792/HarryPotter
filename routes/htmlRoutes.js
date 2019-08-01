@@ -1,7 +1,7 @@
 var db = require("../models");
 var path = require("path");
 
-var api = require("../api/api");
+// var api = require("../api/api");
 // var axios = require("axios");
 
 module.exports = function(app) {
@@ -21,7 +21,12 @@ module.exports = function(app) {
   var hbsObject = {};
   app.post("/results", function(req, res) {
     db.Story.findAll({
-      where: { playerName: req.body.playerName }
+      // where: { playerName: req.body.playerName }
+      limit: 1,
+      where: {
+        playerName: req.body.playerName
+      },
+      order: [["createdAt", "DESC"]]
     }).then(function(data) {
       hbsObject = {
         playerName: data[0].dataValues.playerName,
