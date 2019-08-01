@@ -18,7 +18,7 @@ module.exports = function(app) {
 
   app.get("/results", function(req, res) {
     db.Story.findAll({
-      where: { playerName: playerName }
+      where: { playerName: req.body.playerName }
     }).then(function(data) {
       var hbsObject = {
         playerName: data[0].dataValues.playerName,
