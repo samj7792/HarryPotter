@@ -5,15 +5,31 @@ var path = require("path");
 module.exports = function(app) {
   // Load home page
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/home.html"));
+    res.sendFile(path.join(__dirname, "../public/html/index.html"));
   });
 
   app.get("/second", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public//html/second.html"));
+    res.sendFile(path.join(__dirname, "../public/html/second.html"));
   });
 
   app.get("/quiz1", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/quiz1.html"));
+  });
+
+  app.get("/results", function(req, res) {
+    db.Story.findAll({
+      where: { playerName: playerName }
+    }).then(function(data) {
+      var hbsObject = {
+        playerName: data[0].dataValues.playerName,
+        house: data[0].dataValues.house,
+        characterMatch: data[0].dataValues.characterMatch,
+        class: data[0].dataValues.class
+      };
+      console.log(data);
+      console.log(hbsObject);
+      res.render("results", hbsObject);
+    });
   });
   
   // // Load index page

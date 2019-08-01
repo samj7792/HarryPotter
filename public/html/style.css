@@ -1,0 +1,56 @@
+body {
+  background: black;
+  margin: 0;
+  padding: 0;
+ }
+ 
+
+#form {
+    /* margin-top: 350px; */
+    position: absolute;
+    top: 300px;
+    padding: 15px;
+    opacity: .9;
+    font-size: 1.7em bold;
+    border-color: white;
+    background: rgb(221, 216, 207);
+    border-style: solid;
+    border-width: 6px;
+    border-radius: 4px;
+   
+  
+
+  }
+  
+#letter-button {
+  
+    margin-left:    700px;
+    background-color: orange;
+    position: relative;
+  }
+
+
+
+#envelope-closed {
+
+border-radius: 20px;
+height: 90%;
+width: 90%;
+margin-top: 200px;
+
+}
+
+#particles-js {
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: -10;
+  bottom: 0;
+  margin: auto;
+  height: 100vh; 
+  overflow-y:hidden
+  
+  
+}
