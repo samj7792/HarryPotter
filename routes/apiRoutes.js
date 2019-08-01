@@ -25,7 +25,7 @@ module.exports = function(app) {
     userAnswerArr.push(req.body);
 
 
-    var newPerson = req.body.options;
+    var newPerson = req.body["options[]"];
     console.log("userAnswerArr");
     console.log(userAnswerArr);
     console.log("newPerson");
