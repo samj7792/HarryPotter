@@ -428,7 +428,9 @@ $("#submit").on("click", function(event) {
             $("#match-name").text(data.houseName);
             $("#match-photo").attr("src", data.houseImage);
             // Show results modal
-            $("#modal-match").modal();
+            $("#modal-match").modal({
+                dismissible: false
+            });
             $("#modal-match").modal("open");
             console.log("Front end hello!");
         })

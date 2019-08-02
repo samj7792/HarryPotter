@@ -345,7 +345,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="/quiz2" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
+                <a href="/results" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
             </div>
         </div>
         
@@ -428,15 +428,17 @@ $("#submit").on("click", function(event) {
             $("#match-name").text(data.houseName);
             $("#match-photo").attr("src", data.houseImage);
             // Show results modal
-            $("#modal-match").modal();
+            $("#modal-match").modal({
+                dismissible: false
+            });
             $("#modal-match").modal("open");
             console.log("Front end hello!");
         })
-        // .then(() => {  
-        //     $.post("/results", playerName, function(data) {
-        //         console.log(playerName);
-        //     })
-        // })
+        .then(() => {  
+            $.post("/results", playerName, function(data) {
+                console.log(playerName);
+            })
+        })
         // .then(() => {
         //     window.location.href = "/results"
         // });

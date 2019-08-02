@@ -345,7 +345,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="/results" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
+                    <a href="/quiz3" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
                 </div>
             </div>
         
@@ -428,7 +428,9 @@ $("#submit").on("click", function(event) {
             $("#match-name").text(data.friendName);
             $("#match-photo").attr("src", data.friendImage);
             // Show results modal
-            $("#modal-match").modal();
+            $("#modal-match").modal({
+                dismissible: false
+            });
             $("#modal-match").modal("open");
             console.log("Front end hello!");
         }).then(() => {  
