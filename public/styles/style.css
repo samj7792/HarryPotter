@@ -10,7 +10,12 @@ padding: 0;
 
 #form {
 
-margin-top: 400px;
+height: 100%;
+}
+
+#row1 {
+
+  width: 100%;
 }
 
 
@@ -42,6 +47,12 @@ width: 90%;
 }
 
 
+#train-ticket {
+ 
+  display: none;
+}
+
+
 /* Particle background */
 #particles-js {
 
@@ -55,6 +66,7 @@ margin: auto;
 height: 100vh; 
 overflow-y:hidden
 }
+
 
 .modal {
   background: black;
@@ -104,5 +116,15 @@ overflow-y:hidden
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+#train-ticket:hover {
+
+/* Start the shake animation and make the animation last for 0.5 seconds */
+animation: shake 0.5s; 
+
+/* When the animation is finished, start again */
+animation-iteration-count: 1; 
 }
 

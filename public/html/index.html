@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link rel="stylesheet" media="screen" href="../styles/style.css">
+  <link rel="stylesheet" type = "text/css" media="screen" href="../styles/style.css">
 </head>
 <body>
   
@@ -24,11 +24,12 @@
  <div id="particles-js">
 
 <!---Main container for form and image-->
-  <div class = "panel container" id = "form">
+  <div class = "panel container valign-wrapper" id = "form">
    <div class="row" id = "row1">
     <div class="col s3"></div>
     <div class="col s6">
     <img src="../images/Pixel_Envelope.jpeg" id = "envelope-closed">
+    <img src="../images/hogwarts_express_ticket.jpg" id = "train-ticket" height = "80%" width = "80%" >
     </div>
     <div class="col s3"></div>
     
@@ -62,17 +63,33 @@
           <div class="carousel-item white-text" href="#two!">
             <img src = "../images/hogwarts-items.jpg">
           </div>
-
-          <!-- <div class="carousel-item white-text" style="width: 800px;
-          height: 1600px;" href="#three!">
-            <img src = "assets/images/hogwarts_express_ticket.jpg"> 
-          </div> -->
         </div>
     </div>
       <div class="modal-footer black">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat" ><a href="/quiz1" class="waves-effect waves-light btn grey" id = "continue-button">Continue</a></a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" ><a class="waves-effect waves-light btn grey" id = "continue-button">Continue</a></a>
       </div>
     </div>
+
+
+
+
+
+    
+
+<!--- audio -->
+<audio id="train-noise">
+  <source src="../audio/steam-train-whistle.mp3" type="audio/mpeg">
+</audio>    
+<audio id="train-noise">
+  <source src="../audio/steam-train-wheels.mp3" type="audio/mpeg">
+</audio>    
+<audio id="letter-noise">
+  <source src="../audio/paper-rip-2.mp3" type="audio/mpeg">
+</audio>   
+<audio id="title-noise">
+  <source src="../audio/title-song.mp3" type="audio/mpeg">
+</audio>   
+
 
 <!-- scripts -->
 <script src="../js/particles.min.js"></script>
@@ -89,7 +106,7 @@ $(".validate").on('keypress',function(e) {
      
 // Trim blank space off of name
 // Do not allow submission if field is blank
-     var playerName = {
+var playerName = {
        playerName: $("#icon_prefix").val().trim()
      }
       if (playerName === "")  {
@@ -99,8 +116,15 @@ $(".validate").on('keypress',function(e) {
       else {
         console.log(playerName)
        $("form").hide();
-       $("#envelope-closed").css("display", "initial");
+       $('audio#title-noise')[0].play();
+
+       setTimeout(envelope, 5000)
+       function envelope(){
+          
+        $("#envelope-closed").css("display", "initial");
       }
+    }
+     
 
       sessionStorage.setItem("playerName", JSON.stringify(playerName));
       console.log(sessionStorage.playerName);
@@ -115,11 +139,17 @@ $(".validate").on('keypress',function(e) {
 }); 
 
 
+
+
+
+
+
 // Hide the envelope upon click
 // Open Modal
 // Display Carousel within Modal
 $("#envelope-closed").on('click', function(){
   console.log("Opened the letter!");
+  $('audio#letter-noise')[0].play();
   $("#envelope-closed").hide();
   $('.modal').modal();
   $(".modal").modal("open");
@@ -129,11 +159,26 @@ $("#envelope-closed").on('click', function(){
   });
 })
 
+// Close modal when 'continue' is pressed
 $("#continue-button").on('click', function (){
  console.log("Continue!")
  $('.modal').modal();
  $(".modal").modal("close");
+ $("#train-ticket").css("display", "initial")
 
+});
+
+// Change background and play audio when ticket is clicked
+$("#train-ticket").on('click', function(){
+ console.log("all aboard!");
+ $('audio#title-noise')[0].pause()
+ $("#train-ticket").hide();
+ $('audio#train-noise')[0].play();
+ $('audio#train-noise')[1].play();
+//  $("#particles-js").hide();
+ $("body").css("background", "url( " + "../images/train-background2.jfif" + ")")
+
+ 
 });
 </script>
 </body>
