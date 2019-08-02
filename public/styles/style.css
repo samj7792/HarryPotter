@@ -1,0 +1,108 @@
+body {
+
+background: black;
+background-size: cover;
+margin: 0;
+padding: 0;
+}
+ 
+ 
+
+#form {
+
+margin-top: 400px;
+}
+
+
+/*-Changes form input text from black to white-*/
+input, select, textarea{
+
+color: white;
+}
+
+input:focus {
+
+border-bottom: 1px solid #005DAB !important;
+box-shadow: 0 1px 0 0 #005DAB;
+}
+
+
+label:active {
+
+color: #005DAB;
+}
+
+
+#envelope-closed {
+
+border-radius: 20px;
+display: none;
+height: 90%;
+width: 90%;
+}
+
+
+/* Particle background */
+#particles-js {
+
+position: absolute;
+z-index: 1;
+left: 0;
+right: 0;
+top: -10;
+bottom: 0;
+margin: auto;
+height: 100vh; 
+overflow-y:hidden
+}
+
+.modal {
+  background: black;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #c5c4c4; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+/* creates shake ffect for envelope */
+#envelope-closed:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s; 
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: 1; 
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+

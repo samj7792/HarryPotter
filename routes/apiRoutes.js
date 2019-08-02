@@ -20,7 +20,7 @@ module.exports = function(app) {
   // Retrieves user input from array and posts to players list
   app.post("/api/players", function(req, res) {
     
-    // console.log(req.body);
+    console.log(req.body);
 
     db.Story.create({
       playerName: req.body.playerName

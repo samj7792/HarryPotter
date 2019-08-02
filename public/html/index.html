@@ -12,62 +12,129 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link rel="stylesheet" media="screen" href="style.css">
+  <link rel="stylesheet" media="screen" href="../styles/style.css">
 </head>
 <body>
-
-
-
+  
+<!-- particles.js container --> 
+ <div id="particles-js"></div>
+  
+      
 <!-- particles.js container -->
-<div id="particles-js">
-<!--Main Container for Submission box and letter-->   
-<div class = "container">
-  <div class = "row">
-   <div class = "col s12 m12 l12">
-    <div class = "container" id="submission-box">
-    <div class = "z-depth-5" id = "form">
-    <form action="/quiz1" method="GET">
-     <input type ="text" autocomplete="off" id ="name" placeholder="">
-     <label for ="name"><h6>Enter your name</h6></label>
-     <a href="/quiz1" class="waves-effect waves-light btn" id = "letter-button"><i class="material-icons right">email</i>Begin</a>
-    </form>
+ <div id="particles-js">
+
+<!---Main container for form and image-->
+  <div class = "panel container" id = "form">
+   <div class="row" id = "row1">
+    <div class="col s3"></div>
+    <div class="col s6">
+    <img src="../images/Pixel_Envelope.jpeg" id = "envelope-closed">
     </div>
- </div>
- </div>
- </div>
- </div>
+    <div class="col s3"></div>
+    
+    <!-- Form for name input -->
+    <form class="col s12">
+      <div class="row">
+        <div class="col s3"></div>
+        <div class="input-field col s6">
+          <input id="icon_prefix" type="text" autocomplete="off" class="validate">
+          <label for="icon_prefix" class = "name-field" id = "icon_prefix"><strong>Enter your name</strong></label>
+        </div>
+        <div class="col s3"></div>
+        
+      </div>
+    </form>
+   </div>
+  </div>  
+  </div>
 
+   <!-- Modal Structure -->
+   <div id="modal1" class="modal">
+      <div class="modal-content">
+   <!--Carousel-->     
+      <div class="carousel carousel-slider center">
+          <div class="carousel-fixed-item center">
+          </div>
+          <div class="carousel-item white-text" href="#one!">
+            <img src = "../images/hogwarts-letter-blank-1.jpg">
+          </div>
 
-</div>
+          <div class="carousel-item white-text" href="#two!">
+            <img src = "../images/hogwarts-items.jpg">
+          </div>
+
+          <!-- <div class="carousel-item white-text" style="width: 800px;
+          height: 1600px;" href="#three!">
+            <img src = "assets/images/hogwarts_express_ticket.jpg"> 
+          </div> -->
+        </div>
+    </div>
+      <div class="modal-footer black">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" ><a href="/quiz1" class="waves-effect waves-light btn grey" id = "continue-button">Continue</a></a>
+      </div>
+    </div>
 
 <!-- scripts -->
-<script src="particles.min.js"></script>
-<script src="app.js"></script>
+<script src="../js/particles.min.js"></script>
+<script src="../js/app.js"></script>
 
 <script>
+// Grab user input
+// Hide form
+// Display letter
+$(".validate").on('keypress',function(e) {
+    if(e.which == 13) {
+      e.preventDefault();
+      
+     
+// Trim blank space off of name
+// Do not allow submission if field is blank
+     var playerName = {
+       playerName: $("#icon_prefix").val().trim()
+     }
+      if (playerName === "")  {
+        event.preventDefault();
+      }
 
+      else {
+        console.log(playerName)
+       $("form").hide();
+       $("#envelope-closed").css("display", "initial");
+      }
 
-$("#letter-button").on("click", function(event) {
-  // event.preventDefault();
-  var playerName = {
-    playerName: $("#name").val().trim()
-  };
-  console.log(playerName);
-  
-  sessionStorage.setItem("playerName", JSON.stringify(playerName));
-  console.log(sessionStorage.playerName);
-  var playerName2 = JSON.parse(sessionStorage.playerName);
-  console.log(playerName2);
+      sessionStorage.setItem("playerName", JSON.stringify(playerName));
+      console.log(sessionStorage.playerName);
+      var playerName2 = JSON.parse(sessionStorage.playerName);
+      console.log(playerName2);
 
-  $.post("/api/players", playerName2, function(data) {
-    console.log(playerName2);
+      $.post("/api/players", playerName2, function(data) {
+        console.log(playerName2);
   });
 
+     }
+}); 
+
+
+// Hide the envelope upon click
+// Open Modal
+// Display Carousel within Modal
+$("#envelope-closed").on('click', function(){
+  console.log("Opened the letter!");
+  $("#envelope-closed").hide();
+  $('.modal').modal();
+  $(".modal").modal("open");
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+})
+
+$("#continue-button").on('click', function (){
+ console.log("Continue!")
+ $('.modal').modal();
+ $(".modal").modal("close");
+
 });
-
 </script>
-
-
-
 </body>
 </html>

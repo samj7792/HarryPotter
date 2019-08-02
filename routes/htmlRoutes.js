@@ -1,7 +1,7 @@
 var db = require("../models");
 var path = require("path");
 
-// var api = require("../api/api");
+// var api = require("../public/js/api");
 // var axios = require("axios");
 
 module.exports = function(app) {
@@ -53,12 +53,10 @@ module.exports = function(app) {
   app.get("/pause", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/pause.html"));
   });
-  // app.get("/spells", function(req, res) {
-  //   res.sendFile(api)
-  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
-    res.render("404");
+    // res.render("404");
+    res.sendFile(path.join(__dirname, "../public/html/index.html"));
   });
 };
