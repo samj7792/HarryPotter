@@ -10,12 +10,13 @@
 
         <div class="player">
         {{!-- {{#each playerName}} --}}
-            <p>Your name is: {{playerName}}</p>
-            <p>You've been sorted into: {{house}}</p>
-            <p>Your character is: {{characterMatch}}</p>
-            <p>Your favorite class is: {{class}}</p>
+            <p>Your name is: {{hbsObject.playerName}}</p>
+            <p>You've been sorted into: {{hbsObject.house}}</p>
+            <p>Your character is: {{hbsObject.characterMatch}}</p>
+            <p>Your favorite class is: {{hbsObject.class}}</p>
         {{!-- {{/each}} --}}
-            <p>Random spell: <span id="api-spell"></span></p>
+            <p>Random spell: {{randomSpell.spell}}</p>
+            <p>{{randomSpell.effect}}</p>
         </div>
     </div>
 </div>
