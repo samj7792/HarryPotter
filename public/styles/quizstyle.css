@@ -1,0 +1,76 @@
+body {
+    background-image: url("../images/paper-1074131_1920.jpg");
+}
+
+.quiz-card {
+    background: rgba(58, 45, 31, 0.75);
+}
+
+.quiz-title {
+    font-size: 40px;
+    font-family: 'Beth Ellen', cursive;
+    color: rgb(238, 214, 188);
+}
+
+.question {
+    font-size: 30px;
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+label {
+    /* font-size: 20px; */
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+/* Changing color of the radio buttons */
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+    border: 2px solid rgba(58, 45, 31);
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background-color:  rgba(58, 45, 31);
+}
+
+#submit {
+    text-transform: none;
+    font-family: 'Beth Ellen', cursive;
+}
+
+/* Validation modal styling */
+h4.modalv, p.modalv, a.modalv {
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+p.modalv {
+    font-size: 20px;
+}
+
+a.modalv {
+    text-transform: none;
+    font-size: 18px;
+}
+
+/* Results modal styling */
+h4.modalm, p.modalm, a.modalm {
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+p.modalm {
+    font-size: 20px;
+}
+
+a.modalm {
+    text-transform: none;
+    font-size: 18px;
+}
+
+/* #match-photo {
+    max-height: 400px;
+} */

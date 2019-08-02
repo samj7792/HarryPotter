@@ -18,6 +18,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/quiz1.html"));
   });
 
+  app.get("/quiz2", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/quiz2.html"));
+  });
+
   var hbsObject = {};
   app.post("/results", function(req, res) {
     db.Story.findAll({

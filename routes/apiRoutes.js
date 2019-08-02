@@ -1,5 +1,6 @@
 var db = require("../models");
 var houseData = require("../data/houses");
+var friendData = require("../data/friends");
 
 module.exports = function(app) {
 
@@ -92,6 +93,44 @@ module.exports = function(app) {
     });
     res.status(204).end();
   });
+
+  // Finding the player's character match
+  app.put("/api/players/friends", function(req, res) {
+
+    var newPerson = req.body["userAnswers[options][]"];
+    var friendMatch;
+    var friendPhoto;
+    
+    var diffArr = [];
+    for (var i = 0; i < friendData.length; i++) {
+        var difference = 0;
+        for (var j = 0; j < newPerson.length; j++) {
+            difference += Math.abs(friendData[i].options[j] - newPerson[j]);
+        }
+        
+        console.log(difference);
+        diffArr.push(difference)
+    }
+    var matchNum = diffArr.indexOf(Math.min(...diffArr));
+    friendMatch = friendData[matchNum].name;
+    friendPhoto = friendData[matchNum].photo;
+    console.log(friendMatch);
+
+
+    res.json({
+      friendName: friendMatch, 
+      friendImage: friendPhoto
+    });
+    
+    db.Story.update({
+      characterMatch: friendMatch
+    }, {
+      where: {
+        id: currentID
+      }
+    });
+    res.status(204).end();
+  })
 
 
   // app.post("/api/players/results", function(req, res) {

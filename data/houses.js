@@ -4,25 +4,25 @@ var houseArr = [
   {
     name: "Gryffindor",
     photo:
-      "https://modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg",
+      "http://cdn.shopify.com/s/files/1/1541/8579/products/BannerFlag-Gryffindor-HarryPotter-Product-_5-4895205600140_1_grande.jpg?v=1520333907",
     options: ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
   },
   {
-    name: "Harry Potter",
-    photo: "https://img1.looper.com/img/uploads/2019/02/harry-potter.jpg",
-    options: ["4", "2", "5", "2", "2", "1", "5", "2", "3", "3"]
+    name: "Ravenclaw",
+    photo: "https://i.imgur.com/7CppVzJ.jpg",
+    options: ["2", "2", "2", "2", "2", "2", "2", "2", "2", "2"]
   },
   {
-    name: "Burt Macklin, FBI",
+    name: "Hufflepuff",
     photo:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzBZCouIyImfwo_sqVBjWxfxzbKHvQOGO185FW8PsFiyGCModpA",
-    options: ["5", "1", "3", "1", "4", "2", "5", "1", "4", "5"]
+      "https://www.yourwdwstore.net/assets/images/3/30000/2000/100/32178.jpg",
+    options: ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3"]
   },
   {
-    name: "Marcel the Shell",
+    name: "Slytherin",
     photo:
-      "https://cbsnews1.cbsistatic.com/hub/i/2011/12/14/e7959ea6-a643-11e2-a3f0-029118418759/Marcel-the-shell-640x480.jpg",
-    options: ["5", "1", "1", "2", "1", "4", "2", "1", "5", "1"]
+      "https://images-na.ssl-images-amazon.com/images/I/71kr-BFwiTL._UX522_.jpg",
+    options: ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
   }
 ];
 
