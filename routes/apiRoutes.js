@@ -1,10 +1,10 @@
 var db = require("../models");
 var houseData = require("../data/houses");
 var friendData = require("../data/friends");
+var classData = require("../data/classes");
 
 module.exports = function(app) {
 
-  var currentID;
 
   // Displays house data
   app.get("/api/housequiz", function(req, res) {
@@ -25,22 +25,9 @@ module.exports = function(app) {
     db.Story.create({
       playerName: req.body.playerName
     })
-    .then(function() {
-      db.Story.findAll({
-        limit: 1,
-        where: {
-          playerName: req.body.playerName
-        },
-        order: [ [ 'createdAt', 'DESC' ] ]
-      })
-      .then(function(results) {
-        currentID = results[0].dataValues.id;
-        // console.log(results);
-        console.log(currentID);
-      })
-    })
-
-    res.status(204).end();
+    .then(function(result) {
+      res.json(result);
+    });
 
   });
 
@@ -48,6 +35,8 @@ module.exports = function(app) {
   app.put("/api/players", function(req, res) {
     // userAnswerArr.push(req.body);
     console.log(req.body);
+
+    var currentID = req.body.playerID;
 
     var newPerson = req.body["userAnswers[options][]"];
     console.log("userAnswerArr");
@@ -87,7 +76,6 @@ module.exports = function(app) {
       house: houseMatch
     }, {
       where: {
-        // playerName: req.body["playerName[playerName]"]
         id: currentID
       }
     });
@@ -96,7 +84,7 @@ module.exports = function(app) {
 
   // Finding the player's character match
   app.put("/api/players/friends", function(req, res) {
-
+    var currentID = req.body.playerID;
     var newPerson = req.body["userAnswers[options][]"];
     var friendMatch;
     var friendPhoto;
@@ -108,13 +96,11 @@ module.exports = function(app) {
             difference += Math.abs(friendData[i].options[j] - newPerson[j]);
         }
         
-        console.log(difference);
         diffArr.push(difference)
     }
     var matchNum = diffArr.indexOf(Math.min(...diffArr));
     friendMatch = friendData[matchNum].name;
     friendPhoto = friendData[matchNum].photo;
-    console.log(friendMatch);
 
 
     res.json({
@@ -129,26 +115,43 @@ module.exports = function(app) {
         id: currentID
       }
     });
-    res.status(204).end();
+  });
+
+  app.put("/api/players/class", function(req, res) {
+    var currentID = req.body.playerID;
+    console.log(currentID);
+    var newPerson = req.body["userAnswers[options][]"];
+    console.log(newPerson);
+    var classMatch;
+    var classPhoto;
+    
+    var diffArr = [];
+    for (var i = 0; i < classData.length; i++) {
+        var difference = 0;
+        for (var j = 0; j < newPerson.length; j++) {
+            difference += Math.abs(classData[i].options[j] - newPerson[j]);
+        }
+        
+        diffArr.push(difference)
+    }
+    var matchNum = diffArr.indexOf(Math.min(...diffArr));
+    classMatch = classData[matchNum].name;
+    classPhoto = classData[matchNum].photo;
+
+
+    res.json({
+      className: classMatch, 
+      classImage: classPhoto
+    });
+    
+    db.Story.update({
+      class: classMatch
+    }, {
+      where: {
+        id: currentID
+      }
+    });
   })
 
-
-  // app.post("/api/players/results", function(req, res) {
-  //   console.log(req.body);
-
-  //   db.Story.findAll({
-  //     where: { playerName: req.body.playerName }
-  //   }).then(function(data) {
-  //     var hbsObject = {
-  //       playerName: data[0].dataValues.playerName,
-  //       house: data[0].dataValues.house,
-  //       characterMatch: data[0].dataValues.characterMatch,
-  //       class: data[0].dataValues.class
-  //     };
-  //     console.log(data);
-  //     console.log(hbsObject);
-  //     res.render("results", hbsObject);
-  //   });
-  // })
 };
 

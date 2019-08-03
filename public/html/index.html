@@ -116,7 +116,7 @@ var playerName = {
       else {
         console.log(playerName)
        $("form").hide();
-       $('audio#title-noise')[0].play();
+      //  $('audio#title-noise')[0].play();
 
        setTimeout(envelope, 5000)
        function envelope(){
@@ -124,18 +124,15 @@ var playerName = {
         $("#envelope-closed").css("display", "initial");
       }
     }
-     
+    // Sending player name to back end to create a new entry in database
+    // Retrieving player ID from database and storing in session storage to keep track of their results
+      $.post("/api/players", playerName, function(response) {
+        console.log(playerName);
+        console.log(response.id);
+        sessionStorage.setItem("playerID", JSON.stringify(response.id));
+      });
 
-      sessionStorage.setItem("playerName", JSON.stringify(playerName));
-      console.log(sessionStorage.playerName);
-      var playerName2 = JSON.parse(sessionStorage.playerName);
-      console.log(playerName2);
-
-      $.post("/api/players", playerName2, function(data) {
-        console.log(playerName2);
-  });
-
-     }
+    }
 }); 
 
 

@@ -1,7 +1,6 @@
 var db = require("../models");
 var path = require("path");
 
-// var api = require("../public/js/api");
 var axios = require("axios");
 
 module.exports = function(app) {
@@ -22,15 +21,17 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/quiz2.html"));
   });
 
-  var hbsObject = {};
-  app.post("/results", function(req, res) {
+  app.get("/quiz3", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/quiz3.html"));
+  });
+
+  app.get("/results/:playerID", function(req, res) {
+    var hbsObject = {};
     db.Story.findAll({
-      // where: { playerName: req.body.playerName }
       limit: 1,
       where: {
-        playerName: req.body.playerName
-      },
-      order: [["createdAt", "DESC"]]
+        id: req.params.playerID
+      }
     })
       .then(function(data) {
         hbsObject = {
@@ -47,9 +48,7 @@ module.exports = function(app) {
       .catch(function(error) {
         console.log(error);
       });
-  });
-
-  app.get("/results", function(req, res) {
+    
     console.log(hbsObject);
 
     var randomSpell = {};
@@ -68,15 +67,6 @@ module.exports = function(app) {
         console.log(randomSpell.type);
         console.log(randomSpell.effect);
 
-        // var spellDiv = $("<div>");
-        // spellDiv.addClass("spell-div");
-        // var p1 = $("<p>").html(randomSpell.spell);
-
-        // spellDiv.append(p1);
-
-        // $("#api-spell").append(spellDiv);
-
-        // console.log(spellDiv);
         // res.render("results", { hbsObject: hbsObject, randomSpell: randomSpell });
         res.render("results", { hbsObject, randomSpell });
       })

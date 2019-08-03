@@ -337,7 +337,7 @@
         <div class="modal" id="modal-match">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modalm">You've been sorted into...</h4>
+                    <h4 class="modalm">Your favorite class is...</h4>
                 </div>
                 <div class="modal-body">
                     <p class="modalm"><span id="match-name"></span>!!</p>
@@ -345,7 +345,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="/results" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
+                <a href="#" id="results-btn" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
             </div>
         </div>
         
@@ -354,11 +354,11 @@
 
 
 <script type="text/javascript">
-    
-var playerName = JSON.parse(sessionStorage.getItem("playerName"));
-console.log(playerName);
 
 // Retrieve user input
+var playerID = sessionStorage.getItem("playerID");
+console.log(playerID);
+
 $("#submit").on("click", function(event) {
     var answerArr = [];
     var userAnswers = {};
@@ -400,33 +400,19 @@ $("#submit").on("click", function(event) {
     
     // If form validation returns as true, create an object to hold user's input
     if (validateForm()) {
-        // var userAnswers = {
-        //   options: [
-        //     $("#q1 input:checked").val(),
-        //     $("#q2 input:checked").val(),
-        //     $("#q3 input:checked").val(),
-        //     $("#q4 input:checked").val(),
-        //     $("#q5 input:checked").val(),
-        //     $("#q6 input:checked").val(),
-        //     $("#q7 input:checked").val(),
-        //     $("#q8 input:checked").val(),
-        //     $("#q9 input:checked").val(),
-        //     $("#q10 input:checked").val()
-        //   ]
-        // };
         console.log("HELLO");
         console.log(userAnswers);
 
         // Post user input to /api/players
         $.ajax({
             method: "PUT",
-            url: "/api/players",
-            data: {userAnswers, playerName}
+            url: "/api/players/class",
+            data: {userAnswers, playerID}
         })
         .then(function(data){
             // Grab match here
-            $("#match-name").text(data.houseName);
-            $("#match-photo").attr("src", data.houseImage);
+            $("#match-name").text(data.className);
+            $("#match-photo").attr("src", data.classImage);
             // Show results modal
             $("#modal-match").modal({
                 dismissible: false
@@ -434,15 +420,6 @@ $("#submit").on("click", function(event) {
             $("#modal-match").modal("open");
             console.log("Front end hello!");
         })
-        // .then(() => {  
-        //     $.post("/results", playerName, function(data) {
-        //         console.log(playerName);
-        //     })
-        // })
-        // .then(() => {
-        //     window.location.href = "/results"
-        // });
-    
     } 
     // If form validation returns as false, tell the user to fill out all of the questions
     else {
@@ -451,9 +428,13 @@ $("#submit").on("click", function(event) {
     }
 });
 
-$("#q1 input").on("click", function() {
-    console.log($("#q1 input:checked").val());
-})
+$("#results-btn").on("click", function() {
+    window.location.href = "/results/" + playerID
+});
+
+// $("#q1 input").on("click", function() {
+//     console.log($("#q1 input:checked").val());
+// })
 
 </script>
 

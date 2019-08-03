@@ -352,11 +352,24 @@
 
     </div>
 
+<!--- audio -->
+<audio id="gryffindor-noise">
+    <source src="../audio/steam-train-whistle.mp3" type="audio/mpeg">
+</audio>    
+<audio id="hufflepuff-noise">
+    <source src="../audio/steam-train-wheels.mp3" type="audio/mpeg">
+</audio>    
+<audio id="ravenclaw-noise">
+    <source src="../audio/paper-rip-2.mp3" type="audio/mpeg">
+</audio>   
+<audio id="slytherin-noise">
+    <source src="../audio/title-song.mp3" type="audio/mpeg">
+</audio>   
 
 <script type="text/javascript">
     
-var playerName = JSON.parse(sessionStorage.getItem("playerName"));
-console.log(playerName);
+// var playerName = JSON.parse(sessionStorage.getItem("playerName"));
+// console.log(playerName);
 
 // Retrieve user input
 $("#submit").on("click", function(event) {
@@ -400,33 +413,34 @@ $("#submit").on("click", function(event) {
     
     // If form validation returns as true, create an object to hold user's input
     if (validateForm()) {
-        // var userAnswers = {
-        //   options: [
-        //     $("#q1 input:checked").val(),
-        //     $("#q2 input:checked").val(),
-        //     $("#q3 input:checked").val(),
-        //     $("#q4 input:checked").val(),
-        //     $("#q5 input:checked").val(),
-        //     $("#q6 input:checked").val(),
-        //     $("#q7 input:checked").val(),
-        //     $("#q8 input:checked").val(),
-        //     $("#q9 input:checked").val(),
-        //     $("#q10 input:checked").val()
-        //   ]
-        // };
         console.log("HELLO");
         console.log(userAnswers);
-
+        var playerID = sessionStorage.getItem("playerID");
+        console.log(playerID);
         // Post user input to /api/players
         $.ajax({
             method: "PUT",
             url: "/api/players",
-            data: {userAnswers, playerName}
+            data: {userAnswers, playerID}
         })
         .then(function(data){
             // Grab match here
             $("#match-name").text(data.houseName);
             $("#match-photo").attr("src", data.houseImage);
+
+            if (data.houseName === "Gryffindor") {
+                $("audio#gryffindor-noise")[0].play();
+            }
+            else if (data.houseName === "Hufflepuff") {
+                $("audio#hufflepuff-noise")[0].play();
+            }
+            else if (data.houseName === "Ravenclaw") {
+                $("audio#ravenclaw-noise")[0].play();
+            }
+            else if (data.houseName === "Slytherin") {
+                $("audio#slytherin-noise")[0].play();
+            };
+
             // Show results modal
             $("#modal-match").modal({
                 dismissible: false
