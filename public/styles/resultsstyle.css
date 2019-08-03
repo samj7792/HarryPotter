@@ -1,6 +1,42 @@
+.particles1 {
+  height: 100px;
+}
+
+body {
+  background: black;
+  /* background-size: cover;
+  margin: 0;
+  padding: 0; */
+}
+
+.custom-bg {
+  background-image: url("../images/paper-1074131_1920.jpg");
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 10px;
+}
 
 .text {
   font-size: 40px;
   font-family: 'Beth Ellen', cursive;
-  color: rgb(238, 214, 188);
+  color: rgba(58, 45, 31);
 }
+
+.player {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* margin-bottom: 20px; */
+}
+
+.story {
+  font-size: 24px;
+  font-family: 'Homemade Apple', cursive;
+  color: rgba(58, 45, 31);
+}
+
+.home-btn {
+  text-transform: none;
+  font-family: 'Beth Ellen', cursive;
+  font-size: 18px;
+}
+

@@ -1,23 +1,23 @@
-<div class="row">
-    <div class="col-12">
-        {{!-- <h1 class="text-center title">Welcome!</h1> --}}
-    </div>
-</div>
+<div class="particles1" id="particles-js"></div>
 
-<div class="row container1">
+<div class="row valign-wrapper container1">
     <div class="col m12">
-        <h1 class="text">You've finished your first year at Hogwarts...</h1>
-
-        <div class="player">
-        {{!-- {{#each playerName}} --}}
-            <p>Your name is: {{hbsObject.playerName}}</p>
-            <p>You've been sorted into: {{hbsObject.house}}</p>
-            <p>Your character is: {{hbsObject.characterMatch}}</p>
-            <p>Your favorite class is: {{hbsObject.class}}</p>
-        {{!-- {{/each}} --}}
-            <p>Random spell: {{randomSpell.spell}}</p>
-            <p>{{randomSpell.effect}}</p>
+        <div class="card custom-bg">
+            <div class="card-content">
+                <h1 class="center-align text">You've finished your first year at Hogwarts...</h1><br>
+                 <div class="player">
+                    <p class="story">{{hbsObject.playerName}}, you've successfully completed your first year at Hogwarts! Your house, {{hbsObject.house}}, won the house cup — our sincerest congratulations!</p><br>
+                    <p class="story">While this didn't come as a surprise to anyone, we believe this victory was due to you and your best friend, {{hbsObject.characterMatch}}'s, use of the {{randomSpell.spell}} {{randomSpell.type}}, which {{randomSpell.effect}}, when you were battling the troll that somehow made its way into the castle...</p><br>
+                    <p class="story">As if that weren't enough, we also commend you on your performance in {{hbsObject.class}}, and we believe you are well-positioned to excel next year. Think about continuing your studies in {{hbsObject.class}} for a stellar performance on the OWLs in your fifth year!</p><br>
+                    <p class="story">Congratulations, once again.</p><br><br>
+                </div>
+                <div class="center-align">
+                    <a href="/" class="waves-effect waves-light brown darken-2 btn-large home-btn">Return Home</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="particles1" id="particles-js"></div>
 
