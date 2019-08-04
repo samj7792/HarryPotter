@@ -365,11 +365,25 @@
 <audio id="slytherin-noise">
     <source src="../audio/slytherin-noise.mp3" type="audio/mpeg">
 </audio>   
+<audio id="sorting-hat-start">
+    <source src="../audio/sorting-hat-start.mp3" type="audio/mpeg">
+</audio>   
+<audio id="sorting-hat-song">
+    <source src="../audio/sorting-hat-song.mp3" type="audio/mpeg">
+</audio>   
 
 <script type="text/javascript">
     
 // var playerName = JSON.parse(sessionStorage.getItem("playerName"));
 // console.log(playerName);
+
+$( document ).ready(function() {
+    $('audio#sorting-hat-start')[0].play();
+    setTimeout(song, 12000)
+    function song(){
+    $('audio#sorting-hat-song')[0].play();    
+    }
+});
 
 // Retrieve user input
 $("#submit").on("click", function(event) {
