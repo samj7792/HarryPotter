@@ -46,17 +46,6 @@ label:active {
   width: 90%;
 }
 
-/* Continue buttons */
-.btn, .story {
-  text-transform: none;
-  font-family: 'Beth Ellen', cursive;
-  font-size: 18px;
-  width: 100%; 
-  opacity: .9;
-  /* color: rgba(58, 45, 31); */
-}
-
-
 /* Make buttons hoverable */
 .btn:hover {
   background-color: #ddd;
@@ -118,7 +107,7 @@ label:active {
 }
 
 /* Styling continue button for letter modal */
-#continue-button {
+#continue-button, #continue-button2 {
   text-transform: none;
   font-family: 'Beth Ellen', cursive;
 }
