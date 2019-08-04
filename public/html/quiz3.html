@@ -352,6 +352,10 @@
 
     </div>
 
+    <audio id="class-noise">
+        <source src="../audio/class-noise.mp3" type="audio/mpeg">
+    </audio>    
+
 
 <script type="text/javascript">
 
@@ -402,6 +406,7 @@ $("#submit").on("click", function(event) {
     if (validateForm()) {
         console.log("HELLO");
         console.log(userAnswers);
+        $("audio#class-noise")[0].play();
 
         // Post user input to /api/players
         $.ajax({

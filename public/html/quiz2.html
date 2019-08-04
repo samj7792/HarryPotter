@@ -353,6 +353,10 @@
     </div>
 
 
+<audio id="friends-noise">
+    <source src="../audio/friends-noise.mp3" type="audio/mpeg">
+</audio>   
+
 <script type="text/javascript">
 
 // Retrieve user input
@@ -363,6 +367,7 @@ $("#submit").on("click", function(event) {
     var answerArr = [];
     var userAnswers = {};
     event.preventDefault();
+
     // Form validation
     function validateForm() {
         var isValid = true;
@@ -400,6 +405,7 @@ $("#submit").on("click", function(event) {
     
     // If form validation returns as true, create an object to hold user's input
     if (validateForm()) {
+        $("audio#friends-noise")[0].play();
         console.log("HELLO");
         console.log(userAnswers);
 
