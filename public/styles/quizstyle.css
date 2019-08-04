@@ -25,8 +25,12 @@ body {
 
 /* Setting font size for answer choices */
 #poss-answers {
-    font-size: 20px;
-   
+    font-size: 20px; 
+}
+
+/* Hover effect for answer choices */
+#poss-answers:hover {
+    color: rgb(95, 94, 94);
 }
 
 /* Setting font color and family for answer choices */
@@ -88,8 +92,3 @@ a.modalm {
     text-transform: none;
     font-size: 18px;
 }
-
-
-#poss-answers:hover {
-    color: rgb(95, 94, 94);
- }
