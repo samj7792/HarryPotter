@@ -1,0 +1,94 @@
+/* Background image */
+body {
+    background-image: url("../images/paper-1074131_1920.jpg");
+}
+
+/* Setting background color for quiz title */
+.quiz-card {
+    background: rgba(58, 45, 31, 0.75);
+}
+
+/* Setting font for quiz title */
+.quiz-title {
+    font-size: 50px;
+    font-family: 'Beth Ellen', cursive;
+    color: rgb(238, 214, 188);
+}
+
+/* Setting font for question text */
+.question {
+    font-size: 30px;
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+    font-weight: bold;
+}
+
+/* Setting font size for answer choices */
+#poss-answers {
+    font-size: 20px; 
+}
+
+/* Hover effect for answer choices */
+#poss-answers:hover {
+    color: rgb(95, 94, 94);
+}
+
+/* Setting font color and family for answer choices */
+label {
+    /* font-size: 20px; */
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+/* Changing color of the radio buttons */
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+    border: 2px solid rgba(58, 45, 31);
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background-color:  rgba(58, 45, 31);
+}
+
+/* Setting font for submit button */
+#submit {
+    text-transform: none;
+    font-family: 'Beth Ellen', cursive;
+}
+
+/* Background color for form validation modal */
+#modal1, #modal1-footer {
+    background-color: rgb(238, 214, 188);
+}
+
+/* Validation modal styling */
+h4.modalv, p.modalv, a.modalv {
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+p.modalv {
+    font-size: 20px;
+}
+
+a.modalv {
+    text-transform: none;
+    font-size: 18px;
+}
+
+/* Results modal styling */
+h4.modalm, p.modalm, a.modalm {
+    color: rgba(58, 45, 31);
+    font-family: 'Homemade Apple', cursive;
+}
+
+p.modalm {
+    font-size: 20px;
+}
+
+a.modalm {
+    text-transform: none;
+    font-size: 18px;
+}

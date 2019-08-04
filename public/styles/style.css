@@ -1,0 +1,177 @@
+body {
+  background: black;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* Setting height and width for the Materialize valign-wrapper class */
+#form {
+  height: 100%;
+}
+
+#row1 {
+  width: 100%;
+}
+
+/* Changes font style for name entry textbox */
+#name-entry {
+  font-family: 'Beth Ellen', cursive;
+  font-size: 20px;
+}
+
+
+/*-Changes form input text from black to white-*/
+input, select, textarea{
+  color: white;
+  font-family: 'Beth Ellen', cursive;
+  /* margin-top: 10px; */
+}
+
+input:focus {
+  border-bottom: 1px solid #005DAB !important;
+  box-shadow: 0 1px 0 0 #005DAB;
+}
+
+
+label:active { 
+  color: #005DAB;
+}
+
+
+#envelope-closed {
+  border-radius: 20px;
+  display: none;
+  height: 90%;
+  width: 90%;
+}
+
+/* Make buttons hoverable */
+.btn:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+/* Hide the train ticket until trigger changes the display proper */
+#train-ticket {
+  display: none;
+}
+
+
+/* Particle background */
+#particles-js {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: -10;
+  bottom: 0;
+  margin: auto;
+  height: 100vh; 
+  overflow-y:hidden
+}
+
+/* modal background color */
+.modal {
+  background: black;
+}
+
+/* Giving full width and height to modal containing the letter */
+#modal1 {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+/* Letter modal background styling */
+.custom-bg {
+  overflow: auto;
+  background-image: url("../images/paper-1074131_1920.jpg");
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 10px;
+}
+
+/* Letter modal text styling */
+.letter {
+  color: rgba(58, 45, 31);
+  font-family: 'Homemade Apple', cursive;
+  font-size: 24px;
+}
+
+/* Letter modal header and signature text styling */
+.letter-bold {
+  font-weight: bolder;
+  font-size: 26px;
+}
+
+/* Styling continue button for letter modal */
+#continue-button, #continue-button2 {
+  text-transform: none;
+  font-family: 'Beth Ellen', cursive;
+}
+
+
+.carousel.carousel-slider {
+  background:black;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #c5c4c4; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+/* creates shake ffect for envelope */
+#envelope-closed:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s; 
+  /* When the animation is finished, start again */
+  animation-iteration-count: 1; 
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+#train-ticket:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s; 
+  /* When the animation is finished, start again */
+  animation-iteration-count: 1; 
+}
+
+#carousel-text {
+  background: rgba(0, 3, 3, 0.568);
+}
+
+

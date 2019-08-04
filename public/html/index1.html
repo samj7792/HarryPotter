@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Harry Potter Story</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" type = "text/css" media="screen" href="../styles/style.css">
+</head>
+<body>
+  
+<!-- particles.js container --> 
+ <div id="particles-js"></div>
+  
+      
+<!-- particles.js container -->
+ <div id="particles-js">
+
+<!---Main container for form and image-->
+  <div class = "panel container valign-wrapper" id = "form">
+   <div class="row" id = "row1">
+    <div class="col s3"></div>
+    <div class="col s6">
+    <img src="../images/Pixel_Envelope.jpeg" id = "envelope-closed">
+    <img src="../images/hogwarts_express_ticket.jpg" id = "train-ticket" height = "80%" width = "80%" >
+    </div>
+    <div class="col s3"></div>
+    
+    <!-- Form for name input -->
+    <form class="col s12">
+      <div class="row">
+        <div class="col s3"></div>
+        <div class="input-field col s6">
+          <input id="icon_prefix" type="text" autocomplete="off" class="validate">
+          <label for="icon_prefix" class = "name-field" id = "icon_prefix"><strong>Enter your name</strong></label>
+        </div>
+        <div class="col s3"></div>
+        
+      </div>
+    </form>
+   </div>
+  </div>  
+  </div>
+
+   <!-- Modal Structure -->
+   <div id="modal1" class="modal">
+      <div class="modal-content">
+   <!--Carousel-->     
+      <div class="carousel carousel-slider center">
+          <div class="carousel-fixed-item center">
+          </div>
+          <div class="carousel-item white-text" href="#one!">
+            <img src = "../images/hogwarts-letter-blank-1.jpg">
+          </div>
+
+          <div class="carousel-item white-text" href="#two!">
+            <img src = "../images/hogwarts-items.jpg">
+          </div>
+        </div>
+    </div>
+      <div class="modal-footer black">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" ><a class="waves-effect waves-light btn grey" id = "continue-button">Continue</a></a>
+      </div>
+    </div>
+
+
+
+
+
+    
+
+<!--- audio -->
+<audio id="train-noise">
+  <source src="../audio/steam-train-whistle.mp3" type="audio/mpeg">
+</audio>    
+<audio id="train-noise">
+  <source src="../audio/steam-train-wheels.mp3" type="audio/mpeg">
+</audio>    
+<audio id="letter-noise">
+  <source src="../audio/paper-rip-2.mp3" type="audio/mpeg">
+</audio>   
+<audio id="title-noise">
+  <source src="../audio/title-song.mp3" type="audio/mpeg">
+</audio>   
+
+
+<!-- scripts -->
+<script src="../js/particles.min.js"></script>
+<script src="../js/app.js"></script>
+
+<script>
+// Grab user input
+// Hide form
+// Display letter
+$(".validate").on('keypress',function(e) {
+    if(e.which == 13) {
+      e.preventDefault();
+      
+     
+// Trim blank space off of name
+// Do not allow submission if field is blank
+var playerName = {
+       playerName: $("#icon_prefix").val().trim()
+     }
+      if (playerName === "")  {
+        event.preventDefault();
+      }
+
+      else {
+        console.log(playerName)
+       $("form").hide();
+       $('audio#title-noise')[0].play();
+
+       setTimeout(envelope, 5000)
+       function envelope(){
+          
+        $("#envelope-closed").css("display", "initial");
+      }
+    }
+    // Sending player name to back end to create a new entry in database
+    // Retrieving player ID from database and storing in session storage to keep track of their results
+      $.post("/api/players", playerName, function(response) {
+        console.log(playerName);
+        console.log(response.id);
+        sessionStorage.setItem("playerID", JSON.stringify(response.id));
+      });
+
+    }
+}); 
+
+
+
+
+
+
+
+// Hide the envelope upon click
+// Open Modal
+// Display Carousel within Modal
+$("#envelope-closed").on('click', function(){
+  console.log("Opened the letter!");
+  $('audio#letter-noise')[0].play();
+  $("#envelope-closed").hide();
+  $('.modal').modal();
+  $(".modal").modal("open");
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+})
+
+// Close modal when 'continue' is pressed
+$("#continue-button").on('click', function (){
+ console.log("Continue!")
+ $('.modal').modal();
+ $(".modal").modal("close");
+ $("#train-ticket").css("display", "initial")
+
+});
+
+// Change background and play audio when ticket is clicked
+$("#train-ticket").on('click', function(){
+ console.log("all aboard!");
+ $('audio#title-noise')[0].pause()
+ $("#train-ticket").hide();
+ $('audio#train-noise')[0].play();
+ $('audio#train-noise')[1].play();
+//  $("#particles-js").hide();
+ $("body").css("background", "url( " + "../images/train-background2.jfif" + ")")
+
+ 
+});
+</script>
+</body>
+</html>

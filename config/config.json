@@ -2,13 +2,13 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "exampledb",
+    "database": "harrypotterdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "MyNewPass",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",

@@ -9,8 +9,23 @@ var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
+
+if (app.get('env') === 'development') {
+  const logger = require('morgan');
+  app.use(logger('dev'));
+}
+
 app.use(express.json());
 app.use(express.static("public"));
+
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.json({
+//     log: err.message,
+//     status: err.status || 500,
+//     error: err ? err.msg : ""
+//   });
+// });
 
 // Handlebars
 app.engine(

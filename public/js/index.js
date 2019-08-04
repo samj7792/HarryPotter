@@ -1,3 +1,5 @@
+// var axios = require("axios");
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
@@ -81,6 +83,23 @@ var handleFormSubmit = function(event) {
   $exampleText.val("");
   $exampleDescription.val("");
 };
+
+// API call function
+// var apiCall = function(event) {
+//   event.preventDefault();
+
+//   var queryURL =
+//     "https://api.edamam.com/search?q=" +
+//     "basil" +
+//     "&app_id=" +
+//     process.env.EDAMAM_ID +
+//     "&app_key=" +
+//     process.env.EDAMAM_KEY;
+
+//   axios.get(queryURL).then(function(response) {
+//     console.log(JSON.stringify(response.data.hits[0], null, 2));
+//   });
+// };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list

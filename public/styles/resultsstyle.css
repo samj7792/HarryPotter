@@ -1,0 +1,45 @@
+/* Particles effect div height */
+.particles1 {
+  height: 100px;
+}
+
+/* Background color */
+body {
+  background: black;
+}
+
+/* Card background */
+.custom-bg {
+  background-image: url("../images/paper-1074131_1920.jpg");
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 10px;
+}
+
+/* Header text styling */
+.text {
+  font-size: 40px;
+  font-family: 'Beth Ellen', cursive;
+  color: rgba(58, 45, 31);
+}
+
+/* Margins for text in card */
+.player {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* Story text styling */
+.story {
+  font-size: 24px;
+  font-family: 'Homemade Apple', cursive;
+  color: rgba(58, 45, 31);
+}
+
+/* Button styling */
+.home-btn {
+  text-transform: none;
+  font-family: 'Beth Ellen', cursive;
+  font-size: 18px;
+}
+

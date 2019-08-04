@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Best Friend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/quizstyle.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col m12">
+            <div class="card z-depth-3 quiz-card">
+                <div class="card-content white-text">
+                    <h1 class="center-align quiz-title">Who is your best friend?</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <form>
+             <!-- Question 1 -->
+            <label for="q1" class="question">You're running late to class! What excuse do you use?</label><br>
+            <div id="q1">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group1" type="radio"/>
+                        <span id="poss-answers">"Sorry Professor, I was finishing my homework!"</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group1" type="radio"/>
+                        <span id="poss-answers">"I lost my map and couldn't find the classroom..."</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group1" type="radio"/>
+                        <span id="poss-answers">"I was helping Hagrid deal with a slug infestation."</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group1" type="radio"/>
+                        <span id="poss-answers">"I don't need an excuse. I'm friends with Draco Malfoy."</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 2 -->
+            <label for="q2" class="question">Peeves has started a food fight in the Great Hall! What food do you throw?</label><br>
+            <div id="q2">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group2" type="radio"/>
+                        <span id="poss-answers">Cornish pasties</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group2" type="radio"/>
+                        <span id="poss-answers">Pumpkin juice</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group2" type="radio"/>
+                        <span id="poss-answers">Marshmallows and crumpets</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group2" type="radio"/>
+                        <span id="poss-answers">Mint humbugs</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 3 -->
+            <label for="q3" class="question">You're walking to your dormitory and the staircase starts moving! Where do you hope it takes you?</label><br>
+            <div id="q3">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group3" type="radio"/>
+                        <span id="poss-answers">The hospital wing. You needed a bandage anyway.</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group3" type="radio"/>
+                        <span id="poss-answers">The library. Why not get some studying out of the way?</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group3" type="radio"/>
+                        <span id="poss-answers">The owlery. You like talking to the birds.</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group3" type="radio"/>
+                        <span id="poss-answers">Peeves' room. You've been carrying some mashed potatoes around to get back at him for that food fight.</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 4 -->
+            <label for="q4" class="question">Your house has won the quidditch match! How do you celebrate?</label><br>
+            <div id="q4">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group4" type="radio"/>
+                        <span id="poss-answers">Throw a party in the dormitory!</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group4" type="radio"/>
+                        <span id="poss-answers">Sneak into the kitchen and steal some cake</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group4" type="radio"/>
+                        <span id="poss-answers">Take a well-deserved nap</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group4" type="radio"/>
+                        <span id="poss-answers">Ride the high and finally ask your crush out</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 5 -->
+            <label for="q5" class="question">Which dessert do you hope is being served in the Great Hall tonight?</label><br>
+            <div id="q5">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group5" type="radio"/>
+                        <span id="poss-answers">A slice of cake</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group5" type="radio"/>
+                        <span id="poss-answers">Ice cream</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group5" type="radio"/>
+                        <span id="poss-answers">A bowl of pudding</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group5" type="radio"/>
+                        <span id="poss-answers">Frozen fruit</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 6 -->
+            <label for="q6" class="question">You've forgotten the password to your dormitory! What do you do?</label><br>
+            <div id="q6">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group6" type="radio"/>
+                        <span id="poss-answers">Wait for another student to show up</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group6" type="radio"/>
+                        <span id="poss-answers">Sweet-talk the portrait into letting you in</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group6" type="radio"/>
+                        <span id="poss-answers">Use all of the spells you know to try blasting through the wall</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group6" type="radio"/>
+                        <span id="poss-answers">Cry</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 7 -->
+            <label for="q7" class="question">You've been sneaking around the castle at night and get caught by Filch. What do you say?</label><br>
+            <div id="q7">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group7" type="radio"/>
+                        <span id="poss-answers">"Please don't tell anyone! I'll take care of Mrs. Norris for a week."</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group7" type="radio"/>
+                        <span id="poss-answers">"It's not what it looks like. I was running an errand for Dumbledore!"</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group7" type="radio"/>
+                        <span id="poss-answers">"Expelliarmus!"</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group7" type="radio"/>
+                        <span id="poss-answers">Nothing. You've totally frozen up!</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 8 -->
+            <label for="q8" class="question">What drink are you most likely to order?</label><br>
+            <div id="q8">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group8" type="radio"/>
+                        <span id="poss-answers">Water</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group8" type="radio"/>
+                        <span id="poss-answers">Butterbeer</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group8" type="radio"/>
+                        <span id="poss-answers">Tea</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group8" type="radio"/>
+                        <span id="poss-answers">Pumpkin juice</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 9 -->
+            <label for="q9" class="question">How would your friends describe you?</label><br>
+            <div id="q9">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group9" type="radio"/>
+                        <span id="poss-answers">Adventurous</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group9" type="radio"/>
+                        <span id="poss-answers">Loyal</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group9" type="radio"/>
+                        <span id="poss-answers">Clever</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group9" type="radio"/>
+                        <span id="poss-answers">Cheerful</span>
+                    </label>
+                </p>
+            </div>
+            <!-- Question 10 -->
+            <label for="q10" class="question">What is your favorite season for exploring Hogsmeade?</label><br>
+            <div id="q10">
+                <p>
+                    <label>
+                        <input value="1" class="with-gap" name="group10" type="radio"/>
+                        <span id="poss-answers">Fall</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="2" class="with-gap" name="group10" type="radio"/>
+                        <span id="poss-answers">Winter</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="3" class="with-gap" name="group10" type="radio"/>
+                        <span id="poss-answers">Summer</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input value="4" class="with-gap" name="group10" type="radio"/>
+                        <span id="poss-answers">Spring</span>
+                    </label>
+                </p>
+            </div>
+            <br>
+            <button class="btn waves-effect waves-light brown darken-2" id="submit" type="submit"> Submit</button>
+        </form>
+        <br>
+
+        <!-- Form validation modal -->
+        <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4 class="center-align modalv">Locomotor Mortis</h4>
+                    <br><br>
+                    <p class="center-align modalv">Please answer all of the questions.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-brown btn-flat modalv">Got it!</a>
+                </div>
+            </div>
+            <!-- Match modal -->
+            <div class="modal" id="modal-match">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="center-align modalm">Your best friend at Hogwarts is...</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="center-align modalm"><span id="match-name"></span>!</p>
+                        <img class="responsive-img" id="match-photo" src="" alt="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/quiz3" id="results-btn" class="modal-close waves-effect waves-brown btn-flat modalm">Next Quiz!</a>
+                </div>
+            </div>
+        
+
+    </div>
+
+
+<audio id="friends-noise">
+    <source src="../audio/friends-noise.mp3" type="audio/mpeg">
+</audio>   
+
+<script type="text/javascript">
+
+// Retrieve user input
+var playerID = sessionStorage.getItem("playerID");
+console.log(playerID);
+
+$("#submit").on("click", function(event) {
+    var answerArr = [];
+    var userAnswers = {};
+    event.preventDefault();
+
+    // Form validation
+    function validateForm() {
+        var isValid = true;
+
+        userAnswers = {
+          hello: ["hello"],
+          options: [
+            $("#q1 input:checked").val(),
+            $("#q2 input:checked").val(),
+            $("#q3 input:checked").val(),
+            $("#q4 input:checked").val(),
+            $("#q5 input:checked").val(),
+            $("#q6 input:checked").val(),
+            $("#q7 input:checked").val(),
+            $("#q8 input:checked").val(),
+            $("#q9 input:checked").val(),
+            $("#q10 input:checked").val()
+          ]
+        };
+        console.log("GOODBYE");
+        console.log(userAnswers);
+        
+        userAnswers.options.map(i=>{
+            if($(`#q${i} input:checked`)){
+                answerArr.push(i)
+            } 
+            if (answerArr.includes(undefined)) {
+                isValid = false;
+            }
+        })
+        console.log(answerArr);
+        console.log("Form validation finished");
+        return isValid;
+    }
+    
+    // If form validation returns as true, create an object to hold user's input
+    if (validateForm()) {
+        $("audio#friends-noise")[0].play();
+        console.log("HELLO");
+        console.log(userAnswers);
+
+        // Post user input to /api/players
+        $.ajax({
+            method: "PUT",
+            url: "/api/players/friends",
+            data: {userAnswers, playerID}
+        })
+        .then(function(data){
+            // Grab match here
+            $("#match-name").text(data.friendName);
+            $("#match-photo").attr("src", data.friendImage);
+            // Show results modal
+            $("#modal-match").modal({
+                dismissible: false
+            });
+            $("#modal-match").modal("open");
+            console.log("Front end hello!");
+        })
+    } 
+    // If form validation returns as false, tell the user to fill out all of the questions
+    else {
+        $("#modal1").modal();
+        $("#modal1").modal("open");
+    }
+});
+
+// $("#results-btn").on("click", function() {
+//     window.location.href = "/results/" + playerID
+// });
+
+// $("#q1 input").on("click", function() {
+//     console.log($("#q1 input:checked").val());
+// })
+
+</script>
+
+</body>
+
+</html>
