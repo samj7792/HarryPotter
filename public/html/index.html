@@ -15,6 +15,7 @@
   <link rel="stylesheet" type = "text/css" media="screen" href="../styles/style.css">
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
 </head>
 <body>
   
@@ -57,7 +58,7 @@
    <div id="modal1" class="modal">
       <div class="modal-content">
    <!--Carousel-->     
-      <div class="carousel carousel-slider center">
+      <!-- <div class="carousel carousel-slider center">
           <div class="carousel-fixed-item center">
           </div>
           <div class="carousel-item white-text" href="#one!">
@@ -72,7 +73,34 @@
       <div class="modal-footer black">
         <div class = "container" id = "button-container">
         <a class="waves-effect waves-light btn brown darken-3" id = "continue-button">Continue</a>
-      </div>
+      </div> -->
+
+        <!-- <div class="carousel carousel-slider center">
+          <div class="carousel-fixed-item center"></div>
+          <div class="carousel-item" href="#one!"> -->
+              <div class="card custom-bg">
+                  <div class="card-content">
+                      <div class="player">
+                        <p class="center-align letter letter-bold">Headmaster: Albus Dumbledore</p><br>
+                        <p class="center-align letter letter-bold">(Order of Merlin, First Class, Grand Sorcerer, Chief Warlock, Supreme Mugwump, International Confederation of Wizards)</p><br><br><br>
+                        <p class="letter">Dear <span id="player-name"></span>,</p><br>
+                        <p class="letter">We are pleased to inform you that you have been accepted into Hogwarts School of Witchcraft and Wizardry. Please find enclosed a list of all necessary books and equipment.</p><br>
+                        <p class="letter">Term begins on September 1. We await your owl by no later than July 31.</p><br>
+                        <p class="letter">Yours  Sincerely,</p><br><br>
+                        <p class="letter letter-bold">Minerva McGonagall</p><br><br>
+                        <p class="letter">Professor Minerva McGonagall</p><br>
+                        <p class="letter">Deputy Headmistress</p><br><br>
+                    </div>
+                    <div class="center-align">
+                        <a href="#!" id="continue-button" class="waves-effect waves-light brown darken-2 btn-large">Next</a>
+                    </div>
+                  </div>
+              </div>
+          <!-- </div>
+          </div>
+        </div> -->
+
+
       </div>
     </div>
 
@@ -146,6 +174,8 @@
 <script src="../js/app.js"></script>
 
 <script>
+
+var playerName;
 // Grab user input
 // Hide form
 // Display letter
@@ -156,10 +186,10 @@ $(".validate").on('keypress',function(e) {
      
 // Trim blank space off of name
 // Do not allow submission if field is blank
-var playerName = {
+playerName = {
        playerName: $("#icon_prefix").val().trim()
      }
-      if (playerName === "")  {
+      if (playerName.playerName === "")  {
         event.preventDefault();
       }
 
@@ -200,6 +230,7 @@ $("#envelope-closed").on('click', function(){
   $("#envelope-closed").hide();
   $('#modal1').modal();
   $("#modal1").modal("open");
+  $("#player-name").text(playerName.playerName);
   $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
