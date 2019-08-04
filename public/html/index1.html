@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>particles.js</title>
+  <title>Harry Potter Story</title>
   <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
   <meta name="author" content="Vincent Garreau" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,8 +13,6 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" type = "text/css" media="screen" href="../styles/style.css">
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap" rel="stylesheet">
 </head>
 <body>
   
@@ -41,7 +39,7 @@
         <div class="col s3"></div>
         <div class="input-field col s6">
           <input id="icon_prefix" type="text" autocomplete="off" class="validate">
-          <label for="icon_prefix" class = "name-field" id = "icon_prefix"><strong id="name-entry">Enter your name</strong></label>
+          <label for="icon_prefix" class = "name-field" id = "icon_prefix"><strong>Enter your name</strong></label>
         </div>
         <div class="col s3"></div>
         
@@ -52,8 +50,6 @@
   </div>
 
    <!-- Modal Structure -->
-   <!-- Letter contents -->
-   <!-- Story Modal 1 -->
    <div id="modal1" class="modal">
       <div class="modal-content">
    <!--Carousel-->     
@@ -70,57 +66,11 @@
         </div>
     </div>
       <div class="modal-footer black">
-        <div class = "container" id = "button-container">
-        <a class="waves-effect waves-light btn brown darken-3" id = "continue-button">Continue</a>
-      </div>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" ><a class="waves-effect waves-light btn grey" id = "continue-button">Continue</a></a>
       </div>
     </div>
 
 
-    
-
-
-    <!-- Modal Structure -->
-    <!-- Story Modal 2 -->
-   <div id="modal2" class="modal">
-    <div class="modal-content">
-    <!--Carousel-->     
-    <div class="carousel carousel-slider center">
-        <div class="carousel-item white-text" href="#one!">
-          <img src = "../images/platform.jpg">
-          <div class="carousel-fixed-item center white-text" id = "carousel-text">
-            <!-- <p class = "story">You arrive at Kings Cross station <br>
-              and make your way to platform Nine and Three Quarters. <br>
-              You make your way through the crowd and board the <br> Hogwarts express. Your journey begins!</p> -->
-          </div>
-          <div class = "container center white-text"></div>
-       </div>
-        
-        <div class="carousel-item white-text" href="#two!">
-          <img src = "../images/train-background2.jfif">
-          <div class="carousel-fixed-item center white-text" id = "carousel-text">
-              <!-- <p class = "story">After arriving at platform Nine and Three Quarters, you board the <br> Hogwarts express and begin your journey to the school of Witchcraft and Wizardy!</p> -->
-          </div>
-        </div>
-
-        <div class="carousel-item white-text" href="#three!">
-          <img src = "../images/hogwarts-castle.jpg">
-        </div>
-
-        <div class="carousel-item white-text" href="#four!">
-          <img src = "../images/sorting-hat.jpg">
-        </div>
-      </div>
-      
-      
-      
-  </div>
-    <div class="modal-footer black">
-      <div class = "container">
-      <a href = "/quiz1" class="block waves-effect waves-light btn brown darken-3" id = "continue-button2">Continue</a>
-     </div>
-    </div>
-  </div>
 
 
 
@@ -198,8 +148,8 @@ $("#envelope-closed").on('click', function(){
   console.log("Opened the letter!");
   $('audio#letter-noise')[0].play();
   $("#envelope-closed").hide();
-  $('#modal1').modal();
-  $("#modal1").modal("open");
+  $('.modal').modal();
+  $(".modal").modal("open");
   $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
@@ -209,31 +159,21 @@ $("#envelope-closed").on('click', function(){
 // Close modal when 'continue' is pressed
 $("#continue-button").on('click', function (){
  console.log("Continue!")
- $('#modal1').modal();
- $("#modal1").modal("close");
+ $('.modal').modal();
+ $(".modal").modal("close");
  $("#train-ticket").css("display", "initial")
 
 });
 
-
-// Change background
-// Play audio when ticket is clicked
-// Open second modal
+// Change background and play audio when ticket is clicked
 $("#train-ticket").on('click', function(){
  console.log("all aboard!");
- $('#modal2').modal();
- $("#modal2").modal("open");
- $('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: true
-  });
-
  $('audio#title-noise')[0].pause()
  $("#train-ticket").hide();
  $('audio#train-noise')[0].play();
  $('audio#train-noise')[1].play();
 //  $("#particles-js").hide();
-//  $("body").css("background", "url( " + "../images/train-background2.jfif" + ")")
+ $("body").css("background", "url( " + "../images/train-background2.jfif" + ")")
 
  
 });

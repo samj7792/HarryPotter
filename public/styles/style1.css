@@ -18,18 +18,11 @@ height: 100%;
   width: 100%;
 }
 
-#name-entry {
-  font-family: 'Beth Ellen', cursive;
-  font-size: 20px;
-}
-
 
 /*-Changes form input text from black to white-*/
 input, select, textarea{
 
 color: white;
-font-family: 'Beth Ellen', cursive;
-/* margin-top: 10px; */
 }
 
 input:focus {
@@ -53,25 +46,7 @@ height: 90%;
 width: 90%;
 }
 
-/* Continue buttons */
-.btn, .story {
-  text-transform: none;
-  font-family: 'Beth Ellen', cursive;
-  font-size: 18px;
-  width: 100%; 
-  opacity: .9;
-  /* color: rgba(58, 45, 31); */
-}
 
-
-/* Make buttons hoverable */
-.btn:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-
-/* Hide the train ticket until trigger changes the display proper */
 #train-ticket {
  
   display: none;
@@ -92,14 +67,9 @@ height: 100vh;
 overflow-y:hidden
 }
 
-/* modal background color */
+
 .modal {
   background: black;
-}
-
-
-.carousel.carousel-slider {
-  background:black;
 }
 
 
@@ -157,11 +127,4 @@ animation: shake 0.5s;
 /* When the animation is finished, start again */
 animation-iteration-count: 1; 
 }
-
-#carousel-text {
-
-  background: rgba(0, 3, 3, 0.568);
-
-}
-
 
