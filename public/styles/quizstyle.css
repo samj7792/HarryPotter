@@ -16,6 +16,11 @@ body {
     font-size: 30px;
     color: rgba(58, 45, 31);
     font-family: 'Homemade Apple', cursive;
+    font-weight: bold;
+}
+
+#poss-answers {
+    font-size: 18px;
 }
 
 label {
