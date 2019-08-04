@@ -88,12 +88,14 @@ label:active {
   background: black;
 }
 
+/* Giving full width and height to modal containing the letter */
 #modal1 {
   height: 100%;
   width: 100%;
   overflow: auto;
 }
 
+/* Letter modal background styling */
 .custom-bg {
   overflow: auto;
   background-image: url("../images/paper-1074131_1920.jpg");
@@ -102,15 +104,23 @@ label:active {
   border-radius: 10px;
 }
 
+/* Letter modal text styling */
 .letter {
   color: rgba(58, 45, 31);
   font-family: 'Homemade Apple', cursive;
   font-size: 24px;
 }
 
+/* Letter modal header and signature text styling */
 .letter-bold {
   font-weight: bolder;
   font-size: 26px;
+}
+
+/* Styling continue button for letter modal */
+#continue-button {
+  text-transform: none;
+  font-family: 'Beth Ellen', cursive;
 }
 
 
