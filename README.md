@@ -1,7 +1,7 @@
-#HarryPotter
+# HarryPotter
 This application is a quiz-based story-building game. After the user is prompted to input their name, their name is stored in the database, which creates their row in the table. The user takes a series of quizzes to determine which Hogwarts house they will be sorted into, which character will become their best friend, and which class will be their favorite. At the end, the user has their results displayed to them in the form of a story.
 
-#Setup/Installation
+# Setup/Installation
 After the GitHub repo is cloned or downloaded to your computer, you must do the following:
 1. Run an npm install command at your CLI to install all dependencies
 2. Using mySQL workbench or bash, create the database locally on your machine using the schema.sql file.
@@ -11,7 +11,7 @@ After the GitHub repo is cloned or downloaded to your computer, you must do the 
 Alternatively, you can view the application on Heroku: ENTER LINK HERE ONCE WE DEPLOY
 
 
-#Technologies
+# Technologies
 This Project used the following technologies:
 -Node 
 -Express
@@ -20,7 +20,7 @@ This Project used the following technologies:
 -Materialize CSS
 -Particle.js
 
-#Members
+# Members
 -Cara Sunberg
 -Sam Jackson
 -Dan Rosenbaum
