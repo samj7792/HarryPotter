@@ -13,14 +13,14 @@ Alternatively, you can view the application on Heroku: ENTER LINK HERE ONCE WE D
 
 # Technologies
 This Project used the following technologies:
--Node 
--Express
--Handlebars
--Sequelize
--Materialize CSS
--Particle.js
+- Node 
+- Express
+- Handlebars
+- Sequelize
+- Materialize CSS
+- Particle.js
 
 # Members
--Cara Sunberg
--Sam Jackson
--Dan Rosenbaum
+- Cara Sunberg
+- Sam Jackson
+- Dan Rosenbaum
