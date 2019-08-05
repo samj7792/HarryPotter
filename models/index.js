@@ -9,14 +9,18 @@ var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
+  var sequelize = new Sequelize(process.env[config.use_env_variable], {
+    operatorAliases: "Op"
+  });
+} else if (config.use_env_local) {
+  var sequelize = new Sequelize(process.env[config.use_env_local], {
+    operatorAliases: "Op"
+  });
+} else if (config.use_env_testing) {
+  var sequelize = new Sequelize(process.env[config.testing], {
+    operatorAliases: "Op",
+    logging: false
+  });
 }
 
 fs.readdirSync(__dirname)
